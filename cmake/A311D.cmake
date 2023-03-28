@@ -1,12 +1,12 @@
 set(PKG_NAME "OVXDRV")
 message("Downloading A311D toolchain ...")
-file(DOWNLOAD  "https://releases.linaro.org/components/toolchain/binaries/7.3-2018.05/arm-linux-gnueabihf/gcc-linaro-7.3.1-2018.05-i686-mingw32_arm-linux-gnueabihf.tar.xz"
-    ${PROJECT_BINARY_DIR}/gcc-linaro-7.3.1-2018.05-i686-mingw32_arm-linux-gnueabihf.tar.xz
+file(DOWNLOAD  "https://releases.linaro.org/components/toolchain/binaries/7.3-2018.05/arm-linux-gnueabihf/gcc-linaro-7.3.1-2018.05-x86_64_arm-linux-gnueabihf.tar.xz"
+    ${PROJECT_BINARY_DIR}/gcc-linaro-7.3.1-2018.05-x86_64_arm-linux-gnueabihf.tar.xz
     SHOW_PROGRESS)
 execute_process(COMMAND
-    tar xf ${PROJECT_BINARY_DIR}/gcc-linaro-7.3.1-2018.05-i686-mingw32_arm-linux-gnueabihf.tar.xz)
+    tar xf ${PROJECT_BINARY_DIR}/gcc-linaro-7.3.1-2018.05-x86_64_arm-linux-gnueabihf.tar.xz)
 
-set(TOOLCHAIN_DIR  ${PROJECT_BINARY_DIR}/gcc-linaro-7.3.1-2018.05-i686-mingw32_arm-linux-gnueabihf)
+set(TOOLCHAIN_DIR  ${PROJECT_BINARY_DIR}/gcc-linaro-7.3.1-2018.05-x86_64_arm-linux-gnueabihf)
 set(CMAKE_C_COMPILER ${TOOLCHAIN_DIR}/bin/arm-linux-gnueabihf-gcc)
 set(CMAKE_CXX_COMPILER ${TOOLCHAIN_DIR}/bin/arm-linux-gnueabihf-g++)
 set(CMAKE_AR ${TOOLCHAIN_DIR}/bin/arm-linux-gnueabihf-ar)
