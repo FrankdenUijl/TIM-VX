@@ -31,7 +31,7 @@ list(APPEND OVXDRV_LIBRARIES
     ${PROJECT_BINARY_DIR}/arm_A311D_6.4.4.3/lib/libOpenVX.so
     ${PROJECT_BINARY_DIR}/arm_A311D_6.4.4.3/lib/libOpenVXU.so
     ${PROJECT_BINARY_DIR}/arm_A311D_6.4.4.3/lib/libVSC.so
-    ${PROJECT_BINARY_DIR}/arm_A311D_6.4.4.3/lib/libArchModelSw.so
+    ${PROJECT_BINARY_DIR}/arm_A311D_6.4.4.3/lib/libarchmodelSw.so
     ${PROJECT_BINARY_DIR}/arm_A311D_6.4.4.3/lib/libNNArchPerf.so)
 
 mark_as_advanced(${OVXDRV_INCLUDE_DIRS} ${OVXDRV_LIBRARIES})
