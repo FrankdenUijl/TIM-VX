@@ -1,15 +1,8 @@
 set(PKG_NAME "OVXDRV")
+
 message("Setting ANDROID_NDK environment ...")
-if(NOT DEFINED ENV{ANDROID_NDK})
-    message(FATAL_ERROR "ANDROID_NDK environment variable not set.")
-endif()
 
-set(ANDROID_NDK_PATH $ENV{ANDROID_NDK})
-set(CMAKE_TOOLCHAIN_FILE ${ANDROID_NDK_PATH}/build/cmake/android.toolchain.cmake)
-
-set(ANDROID_ABI "armeabi-v7a")
-set(ANDROID_PLATFORM "android-28")
-include(${CMAKE_TOOLCHAIN_FILE})
+set(TARGET "arm_android9_A311D_6.4.3")
 
 message("Downloading A311D SDK ...")
 file(DOWNLOAD "https://github.com/FrankdenUijl/TIM-VX/releases/download/Binaries/arm_A311D_6.4.4.3.tgz"
