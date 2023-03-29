@@ -18,7 +18,7 @@ option(TIM_VX_DBG_ENABLE_TENSOR_HNDL    "Enable built-in tensor from handle: use
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
 set(CONFIG "" CACHE STRING "Target Platform")
 
 if(${TIM_VX_CODE_COVERAGE})
