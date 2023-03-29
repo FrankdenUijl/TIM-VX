@@ -1,4 +1,5 @@
 set(PKG_NAME "OVXDRV")
+message("Setting ANDROID_NDK environment ...")
 if(NOT DEFINED ENV{ANDROID_NDK})
     message(FATAL_ERROR "ANDROID_NDK environment variable not set.")
 endif()
