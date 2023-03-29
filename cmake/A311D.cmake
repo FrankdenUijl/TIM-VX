@@ -10,6 +10,9 @@ set(CMAKE_TOOLCHAIN_FILE ${ANDROID_NDK_PATH}/build/cmake/android.toolchain.cmake
 set(ANDROID_ABI "armeabi-v7a")
 set(ANDROID_PLATFORM "android-28")
 
+set(CMAKE_C_COMPILER "${ANDROID_NDK_PATH}/toolchains/llvm/prebuilt/linux-x86_64/bin/armv7a-linux-androideabi21-clang")
+set(CMAKE_CXX_COMPILER "${ANDROID_NDK_PATH}/toolchains/llvm/prebuilt/linux-x86_64/bin/armv7a-linux-androideabi21-clang++")
+
 include(${CMAKE_TOOLCHAIN_FILE})
 
 message("Downloading A311D SDK ...")
