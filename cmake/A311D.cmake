@@ -2,7 +2,6 @@ set(PKG_NAME "OVXDRV")
 message("Downloading A311D toolchain ...")
 file(DOWNLOAD  "https://releases.linaro.org/components/toolchain/binaries/7.3-2018.05/arm-linux-gnueabihf/gcc-linaro-7.3.1-2018.05-x86_64_arm-linux-gnueabihf.tar.xz"
     ${PROJECT_BINARY_DIR}/gcc-linaro-7.3.1-2018.05-x86_64_arm-linux-gnueabihf.tar.xz
-    EXPECTED_MD5 "6ec789d642584a01e240ab3366599dbb"
     SHOW_PROGRESS)
 execute_process(COMMAND
     tar xf ${PROJECT_BINARY_DIR}/gcc-linaro-7.3.1-2018.05-x86_64_arm-linux-gnueabihf.tar.xz)
