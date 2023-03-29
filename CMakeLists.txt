@@ -53,6 +53,9 @@ endif()
 
 set(CMAKE_C_VISIBILITY_PRESET hidden)
 
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mno-thumb")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mno-thumb")
+
 if(EXTERNAL_VIV_SDK AND EXISTS ${EXTERNAL_VIV_SDK})
     # this is for internal development purpose
     include(cmake/local_sdk.cmake)
