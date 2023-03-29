@@ -1,17 +1,12 @@
 set(PKG_NAME "OVXDRV")
-message("Downloading A311D toolchain ...")
-file(DOWNLOAD  "https://releases.linaro.org/components/toolchain/binaries/7.3-2018.05/arm-linux-gnueabihf/gcc-linaro-7.3.1-2018.05-x86_64_arm-linux-gnueabihf.tar.xz"
-    ${PROJECT_BINARY_DIR}/gcc-linaro-7.3.1-2018.05-x86_64_arm-linux-gnueabihf.tar.xz
-    SHOW_PROGRESS)
-execute_process(COMMAND
-    tar xf ${PROJECT_BINARY_DIR}/gcc-linaro-7.3.1-2018.05-x86_64_arm-linux-gnueabihf.tar.xz)
+if(NOT DEFINED ENV{ANDROID_NDK})
+    message(FATAL_ERROR "ANDROID_NDK environment variable not set.")
+endif()
 
-set(TOOLCHAIN_DIR  ${PROJECT_BINARY_DIR}/gcc-linaro-7.3.1-2018.05-x86_64_arm-linux-gnueabihf)
-set(CMAKE_C_COMPILER ${TOOLCHAIN_DIR}/bin/arm-linux-gnueabihf-gcc)
-set(CMAKE_CXX_COMPILER ${TOOLCHAIN_DIR}/bin/arm-linux-gnueabihf-g++)
-set(CMAKE_AR ${TOOLCHAIN_DIR}/bin/arm-linux-gnueabihf-ar)
-set(CMAKE_AS ${TOOLCHAIN_DIR}/bin/arm-linux-gnueabihf-as)
-set(CMAKE_LD ${TOOLCHAIN_DIR}/bin/arm-linux-gnueabihf-ld)
+set(ANDROID_NDK_PATH $ENV{ANDROID_NDK})
+set(CMAKE_TOOLCHAIN_FILE ${ANDROID_NDK_PATH}/build/cmake/android.toolchain.cmake)
+
+include(${CMAKE_TOOLCHAIN_FILE})
 
 message("Downloading A311D SDK ...")
 file(DOWNLOAD "https://github.com/FrankdenUijl/TIM-VX/releases/download/Binaries/arm_A311D_6.4.4.3.tgz"
