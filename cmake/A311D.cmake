@@ -1,14 +1,18 @@
 set(PKG_NAME "OVXDRV")
-message("Setting ANDROID_NDK environment ...")
-if(NOT DEFINED ENV{ANDROID_NDK})
-    message(FATAL_ERROR "ANDROID_NDK environment variable not set.")
-endif()
+message("Downloading A311D toolchain ...")
+file(DOWNLOAD  "https://releases.linaro.org/components/toolchain/binaries/7.3-2018.05/arm-linux-gnueabihf/gcc-linaro-7.3.1-2018.05-x86_64_arm-linux-gnueabihf.tar.xz"
+    ${PROJECT_BINARY_DIR}/gcc-linaro-7.3.1-2018.05-x86_64_arm-linux-gnueabihf.tar.xz
+    EXPECTED_MD5 "6ec789d642584a01e240ab3366599dbb"
+    SHOW_PROGRESS)
+execute_process(COMMAND
+    tar xf ${PROJECT_BINARY_DIR}/gcc-linaro-7.3.1-2018.05-x86_64_arm-linux-gnueabihf.tar.xz)
 
-set(ANDROID_NDK_PATH $ENV{ANDROID_NDK})
-set(CMAKE_TOOLCHAIN_FILE ${ANDROID_NDK_PATH}/build/cmake/android.toolchain.cmake)
-set(ANDROID_ABI "armeabi-v7a" CACHE STRING "Target Android ABI")
-set(ANDROID_NATIVE_API_LEVEL "android-28" CACHE STRING "Target Android API level")
-set(CMAKE_SYSTEM_NAME Android)
+set(TOOLCHAIN_DIR  ${PROJECT_BINARY_DIR}/gcc-linaro-7.3.1-2018.05-x86_64_arm-linux-gnueabihf)
+set(CMAKE_C_COMPILER ${TOOLCHAIN_DIR}/bin/arm-linux-gnueabihf-gcc)
+set(CMAKE_CXX_COMPILER ${TOOLCHAIN_DIR}/bin/arm-linux-gnueabihf-g++)
+set(CMAKE_AR ${TOOLCHAIN_DIR}/bin/arm-linux-gnueabihf-ar)
+set(CMAKE_AS ${TOOLCHAIN_DIR}/bin/arm-linux-gnueabihf-as)
+set(CMAKE_LD ${TOOLCHAIN_DIR}/bin/arm-linux-gnueabihf-ld)
 
 message("Downloading A311D SDK ...")
 file(DOWNLOAD "https://github.com/FrankdenUijl/TIM-VX/releases/download/Binaries/arm_A311D_6.4.4.3.tgz"
